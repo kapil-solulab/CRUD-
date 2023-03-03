@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom'
 import { deleteData } from '../Redux/action'
 import { useDispatch } from "react-redux"
 
+
 const initialState = {
     firstName: "",
     lastName: "",
@@ -33,7 +34,7 @@ const Home = () => {
                         </tr>
                     </thead>
                     <tbody>
-                        {!isFilter ? 
+                        {!isFilter ?
                             data.map((user, index) => (
                                 <tr key={user.id}>
                                     <th scope="row" >{index + 1}</th>
@@ -45,28 +46,29 @@ const Home = () => {
                                     <td><button class="btn btn-outline-danger py-0" onClick={() => dispatch(deleteData(user.id))} type="button">Delete</button></td>
                                 </tr>
 
-                            )): (
-                            filterUser.map((user, index) => (
-                                <tr key={user.id}>
-                                    <th scope="row" >{index + 1}</th>
-                                    <td >{user.firstName}</td>
-                                    <td>{user.lastName}</td>
-                                    <td>{user.mobileNo}</td>
-                                    <td>{user.email}</td>
-                                    <td><Link class="nav-link p-0 " to={`/EditUser/${user.id}`} ><button class="btn btn-outline-success py-0" type="button">Edit</button></Link></td>
-                                    <td><button class="btn btn-outline-danger py-0" onClick={() => dispatch(deleteData(user.id))} type="button">Delete</button></td>
-                                </tr>
+                            )) : (
+                                filterUser.map((user, index) => (
+                                    <tr key={user.id}>
+                                        <th scope="row" >{index + 1}</th>
+                                        <td >{user.firstName}</td>
+                                        <td>{user.lastName}</td>
+                                        <td>{user.mobileNo}</td>
+                                        <td>{user.email}</td>
+                                        <td><Link class="nav-link p-0 " to={`/EditUser/${user.id}`} ><button class="btn btn-outline-success py-0" type="button">Edit</button></Link></td>
+                                        <td><button class="btn btn-outline-danger py-0" onClick={() => dispatch(deleteData(user.id))} type="button">Delete</button></td>
+                                    </tr>
 
-                            ))
+                                ))
 
-                        )
-                            
+                            )
 
-                    }
-                        
+
+                        }
+
                     </tbody>
                 </table>
             </div>
+           
         </div>
     )
 }

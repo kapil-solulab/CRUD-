@@ -54,8 +54,8 @@ const AddUser = () => {
                     </div>
                     <div class="col-md-12 position-relative">
                         <label for="validationTooltip03" class="form-label">Mobile No</label>
-                        <input type="number" class="form-control" id="validationTooltip03" min="1"
-                            max="10" name="mobileNo" value={mobileNo} onChange={onInputChange} required />
+                        <input type="number" class="form-control" id="validationTooltip03"
+                            name="mobileNo" value={mobileNo} onChange={onInputChange} required />
                         <div class="valid-tooltip">
                             Looks good!
                         </div>
